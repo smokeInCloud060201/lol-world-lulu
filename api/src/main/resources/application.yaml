@@ -1,0 +1,39 @@
+server:
+  port: 8083
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 2048
+
+spring:
+  application:
+    name: Lulu Application - Notification Service
+  datasource:
+    url: jdbc:postgresql://localhost:5443/lulu
+    username: root
+    password: admin123
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: "${MAIL_USERNAME:karson.ecommerce@gmail.com}"
+    password: "${MAIL_PASSWORD:xqjmzeqrwnjtqwul}"
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+logging:
+  level:
+    org.hibernate:
+      sql: debug
+      type: trace
